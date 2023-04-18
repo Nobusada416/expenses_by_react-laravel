@@ -1,10 +1,28 @@
-import './App.css'
+import React from "react";
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 
-function App() {
+import { GlobalNav } from './components/GlobalNav';
+import { Top } from './components/Top';
+import { About } from './components/About';
+import { Register } from "./components/Register";
+
+export const App = () =>  {
   return (
-    <div className="App">
-      <h1>Vite + React + Laravel</h1>
-    </div>
+    <BrowserRouter>
+      <GlobalNav />
+      <Switch>
+        <Route exact path="/">
+          <Top />
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/register">
+          <Register />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   )
 }
 
